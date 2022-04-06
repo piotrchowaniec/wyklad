@@ -1,0 +1,99 @@
+###
+POST http://localhost:8080/registration?name=JAN
+
+<> 2022-03-30T210216-8.200.json
+
+###
+POST http://localhost:8080/registration?name=Marek
+
+<> 2022-03-30T210216.200.json
+
+###
+POST http://localhost:8080/registration?name=Marek
+
+<> 2022-03-30T210216-1.200.json
+
+###
+POST http://localhost:8080/registration?name=Marek
+
+<> 2022-03-30T210216-2.200.json
+
+###
+POST http://localhost:8080/registration?name=Marek
+
+<> 2022-03-30T210216-3.200.json
+
+###
+POST http://localhost:8080/registration?name=Marek
+
+<> 2022-03-30T210216-4.200.json
+<> 2022-03-30T205726.200.json
+
+###
+POST http://localhost:8080/registration?name=Bartek
+
+<> 2022-03-30T210216-5.200.json
+
+###
+POST http://localhost:8080/registration?name=Bartek
+
+<> 2022-03-30T210216-6.200.json
+
+###
+POST http://localhost:8080/registration?name=Bartek
+
+<> 2022-03-30T210216-7.200.json
+<> 2022-03-30T205726-1.200.json
+
+
+
+###
+POST http://localhost:8080/registration?name=Jan
+
+<> 2022-03-30T210216-9.200.json
+
+###
+POST http://localhost:8080/registration?name=Jan
+
+<> 2022-03-30T210216-10.200.json
+<> 2022-03-30T205726-2.200.json
+
+###
+POST http://localhost:8080/registration?name=Adam
+
+<> 2022-03-30T210216-11.200.json
+
+###
+POST http://localhost:8080/registration?name=Adam
+
+<> 2022-03-30T210216-12.200.json
+
+
+
+
+
+###
+POST http://localhost:8080/registration
+
+<> 2022-03-30T210216.400.json
+
+
+
+
+###
+GET http://localhost:8080/registration?mode=ALL
+
+<> 2022-03-30T210221.200.json
+<> 2022-03-30T210216-13.200.json
+
+###
+GET http://localhost:8080/registration
+
+<> 2022-03-30T210237.200.json
+<> 2022-03-30T210228.404.json
+<> 2022-03-30T210216.404.json
+
+###
+GET http://localhost:8080/registration?mode=IGNORE_CASE
+
+<> 2022-03-30T210216-14.200.json

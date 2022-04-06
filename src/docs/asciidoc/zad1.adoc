@@ -1,0 +1,73 @@
+= Zadanie 1
+
+Należy zaimplementować aplikację webową zbudowaną w oparciu o Spring Boot, umożliwiającą wykonywanie operacji opisanych poniżej.
+Każda operacja powinna zostać zaimplementowana jako osobny endpoint. Aplikacja nie potrzebuje żadnej formy pamięci trwałej, czyli po jej restarcie dane o poprzednich rejestracjach nie są dostępne.
+Parametr określający nazwę użytkownika należy traktować z rozróżnianiem wielkości liter. Podane poniżej adresy endpointów są przykładowe i można je zaimplementować inaczej.
+Zadanie należy wykonać samodzielnie, rozwiązanie powinno zostać umieszczone w{nbsp}repozytorium typu github, a dostęp do niego przekazany prowadzącym.
+
+==== "Rejestracja" użytkownika
+
+Endpoint:
+
+```
+    localhost:8080/register?name=<user_name>
+```
+
+Parametr `name` jest obowiązkowy - w przypadku jego braku należy zwrócić odpowiedni błąd.
+Aplikacja ma zliczać ile zostało wykonanych rejestracji dla danej nazwy użytkownika.
+W{nbsp}odpowiedzi na request aplikacja powinna zwrócić status oraz aktualną liczbę rejestracji dla danej nazwy użytkownika:
+
+```
+    {status: "OK", count: 1}
+```
+
+==== Usunięcie danych o użytkowniku
+
+```
+    localhost:8080/delete?name=<user_name>
+```
+
+Wywołanie endpointa powinno wyczyścić liczbę rejestracji dla danej nazwy użytkownika.
+
+==== Pobranie statystyk rejestracji
+
+```
+    localhost:8080/stats?mode=<stats_mode>
+```
+
+Parametr `mode` jest nieobowiązkowy. W przypadku jego braku aplikacja powinna zwrócić 3 nazwy użytkownika z największą liczbą rejestracji posortowaną od największej do najmniejszej:
+```
+    {
+        "Jan": 15,
+        "Adam": 3,
+        "jan": 2
+    }
+```
+Należy samodzielnie określić politykę zwracania danych, gdy więcej nazw ma taką samą liczbę rejestracji.
+
+Gdy podany zostanie parametr `mode` z wartością `ALL` należy zwrócić dane wszystkich zarejestrowanych użytkowników posortowane od największej liczby rejestracji:
+```
+    {
+        "Jan": 15,
+        "Adam": 3,
+        "jan": 2,
+        "Marek": 1,
+        "Anna": 1
+    }
+```
+
+Gdy podany zostanie parametr `mode` z wartością `IGNORE_CASE` należy zwrócić dane wszystkich zarejestrowanych użytkowników wraz z liczbą rejestracji, ale przy obliczeniach należy
+ignorować wielkość liter:
+```
+    {
+        "Jan": 17,
+        "Adam": 3,
+        "Marek": 1,
+        "Anna": 1
+    }
+```
+
+
+
+
+
