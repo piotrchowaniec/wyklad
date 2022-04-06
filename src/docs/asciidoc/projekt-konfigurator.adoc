@@ -14,9 +14,3 @@ Konfiguracja będzie składała się z następujących kroków:
 . Dla wybranej konkrentej lampy należy umożliwić jej konfigurację - dla poszczególnych części lampy można wybrać kolor z zadanej palety (ok 15 kolorów).
 .. Konfigurator powinien prezentować render lampy wraz z wybranymi kolorami
 .. Nie wszystkie kombinacje kolorów są dozwolone. W przypadku wybrania niepasującego koloru dla jakiejś części pozostałe muszą zostać zmienione tak, aby konfiguracja była prawidłowa
-
-
-
-
-
-https://sztukakodu.pl/jak-najlepiej-uczyc-sie-springa-poprzez-praktyke-15-pomyslow-na-projekty-ktore-pomoga-ci-w-nauce
