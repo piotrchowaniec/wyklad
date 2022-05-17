@@ -2,12 +2,11 @@ package info.fingo.data.entity;
 
 import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Actor {
@@ -24,6 +23,9 @@ public class Actor {
 
     @Column
     private final LocalDateTime lastUpdate;
+
+    @ManyToMany(mappedBy = "actors")
+    private List<Film> films;
 
     protected Actor() {
         this(null, null, null, null);
@@ -51,5 +53,13 @@ public class Actor {
 
     public LocalDateTime getLastUpdate() {
         return lastUpdate;
+    }
+
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(List<Film> films) {
+        this.films = films;
     }
 }
