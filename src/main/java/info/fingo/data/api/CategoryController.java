@@ -20,7 +20,6 @@ public class CategoryController {
 
     @GetMapping
     public List<Category> getAll() {
-        List<Category> all = categoryRepository.findAll();
-        return all;
+        return categoryRepository.findAll();
     }
 }

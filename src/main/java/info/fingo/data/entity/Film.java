@@ -7,7 +7,8 @@ public class Film {
   private String title;
   private String description;
   private String releaseYear;
-  private long languageId;
+
+  private Language language;
   private long rentalDuration;
   private String rentalRate;
   private long length;
@@ -53,15 +54,13 @@ public class Film {
     this.releaseYear = releaseYear;
   }
 
-
-  public long getLanguageId() {
-    return languageId;
+  public Language getLanguage() {
+    return language;
   }
 
-  public void setLanguageId(long languageId) {
-    this.languageId = languageId;
+  public void setLanguage(Language language) {
+    this.language = language;
   }
-
 
   public long getRentalDuration() {
     return rentalDuration;

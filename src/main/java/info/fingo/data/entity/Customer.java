@@ -1,18 +1,27 @@
 package info.fingo.data.entity;
 
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
 public class Customer {
 
+  @Id
+  @GeneratedValue
   private long customerId;
-  private long storeId;
   private String firstName;
   private String lastName;
   private String email;
-  private long addressId;
-  private String activebool;
-  private java.sql.Date createDate;
-  private java.sql.Timestamp lastUpdate;
-  private long active;
+
+  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinColumn(name = "address_id", referencedColumnName = "address_id")
+  private Address address;
+  private LocalDateTime lastUpdate;
+
+  protected Customer() {
+
+  }
 
 
   public long getCustomerId() {
@@ -22,16 +31,6 @@ public class Customer {
   public void setCustomerId(long customerId) {
     this.customerId = customerId;
   }
-
-
-  public long getStoreId() {
-    return storeId;
-  }
-
-  public void setStoreId(long storeId) {
-    this.storeId = storeId;
-  }
-
 
   public String getFirstName() {
     return firstName;
@@ -60,48 +59,19 @@ public class Customer {
   }
 
 
-  public long getAddressId() {
-    return addressId;
+  public Address getAddress() {
+    return address;
   }
 
-  public void setAddressId(long addressId) {
-    this.addressId = addressId;
+  public void setAddress(Address address) {
+    this.address = address;
   }
 
-
-  public String getActivebool() {
-    return activebool;
-  }
-
-  public void setActivebool(String activebool) {
-    this.activebool = activebool;
-  }
-
-
-  public java.sql.Date getCreateDate() {
-    return createDate;
-  }
-
-  public void setCreateDate(java.sql.Date createDate) {
-    this.createDate = createDate;
-  }
-
-
-  public java.sql.Timestamp getLastUpdate() {
+  public LocalDateTime getLastUpdate() {
     return lastUpdate;
   }
 
-  public void setLastUpdate(java.sql.Timestamp lastUpdate) {
+  public void setLastUpdate(LocalDateTime lastUpdate) {
     this.lastUpdate = lastUpdate;
   }
-
-
-  public long getActive() {
-    return active;
-  }
-
-  public void setActive(long active) {
-    this.active = active;
-  }
-
 }

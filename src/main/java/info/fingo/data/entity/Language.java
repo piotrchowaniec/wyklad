@@ -1,11 +1,19 @@
 package info.fingo.data.entity;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
+
+@Entity
 public class Language {
 
+  @Id
+  @GeneratedValue
   private long languageId;
   private String name;
-  private java.sql.Timestamp lastUpdate;
+  private LocalDateTime lastUpdate;
 
 
   public long getLanguageId() {
@@ -26,11 +34,11 @@ public class Language {
   }
 
 
-  public java.sql.Timestamp getLastUpdate() {
+  public LocalDateTime getLastUpdate() {
     return lastUpdate;
   }
 
-  public void setLastUpdate(java.sql.Timestamp lastUpdate) {
+  public void setLastUpdate(LocalDateTime lastUpdate) {
     this.lastUpdate = lastUpdate;
   }
 
