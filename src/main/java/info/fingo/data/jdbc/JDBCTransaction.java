@@ -10,6 +10,7 @@ public class JDBCTransaction {
         try (Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://127.0.0.1:5432/dvdrental", "postgres", "postgres")) {
 
+            connection.setAutoCommit(false);
             try (PreparedStatement update1 = connection.prepareStatement(updateStatement);
                  PreparedStatement update2 = connection.prepareStatement(updateStatement)) {
                 update1.setTimestamp(1, new Timestamp(new Date().getTime()));
@@ -20,7 +21,10 @@ public class JDBCTransaction {
 
                 update1.executeUpdate();
                 update2.executeUpdate();
+                connection.commit();
 
+            } catch (SQLException e) {
+                connection.rollback();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

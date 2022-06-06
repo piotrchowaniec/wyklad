@@ -15,7 +15,7 @@ public class Customer {
   private String email;
 
   @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinColumn(name = "address_id", referencedColumnName = "address_id")
+  @JoinColumn(name = "address_id", referencedColumnName = "addressId")
   private Address address;
   private LocalDateTime lastUpdate;
 

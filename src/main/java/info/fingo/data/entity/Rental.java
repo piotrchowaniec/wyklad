@@ -11,6 +11,8 @@ public class Rental {
   private long staffId;
   private java.sql.Timestamp lastUpdate;
 
+  public Rental() {}
+
 
   public long getRentalId() {
     return rentalId;

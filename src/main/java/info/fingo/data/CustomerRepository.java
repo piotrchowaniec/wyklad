@@ -21,6 +21,9 @@ public interface CustomerRepository extends PagingAndSortingRepository<Customer,
     @Override
     Page<Customer> findAll(Pageable pageable);
 
+    @Override
+    Iterable<Customer> findAll();
+
     @Query("from Customer c left join fetch c.address where c.email = :email ")
     Optional<Customer> findByEmail(String email);
 

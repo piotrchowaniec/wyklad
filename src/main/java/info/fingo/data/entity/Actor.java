@@ -5,7 +5,6 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +14,7 @@ public class Actor {
     @GeneratedValue
     private final Long actorId;
 
-    @Column
+    @Column(name = "first_name")
     private final String firstName;
 
     @Column
@@ -24,8 +23,6 @@ public class Actor {
     @Column
     private final LocalDateTime lastUpdate;
 
-    @ManyToMany(mappedBy = "actors")
-    private List<Film> films;
 
     protected Actor() {
         this(null, null, null, null);
@@ -55,11 +52,4 @@ public class Actor {
         return lastUpdate;
     }
 
-    public List<Film> getFilms() {
-        return films;
-    }
-
-    public void setFilms(List<Film> films) {
-        this.films = films;
-    }
 }

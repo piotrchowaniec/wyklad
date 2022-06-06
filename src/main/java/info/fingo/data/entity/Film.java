@@ -15,7 +15,7 @@ public class Film {
     private String releaseYear;
 
     @ManyToOne
-    @JoinColumn(name = "language_id")
+    @JoinColumn(name = "language_id", referencedColumnName = "languageId")
     private Language language;
     private long rentalDuration;
     private String rentalRate;
@@ -26,7 +26,7 @@ public class Film {
     private String specialFeatures;
     private String fulltext;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "film_actor",
             joinColumns = @JoinColumn(name = "actor_id"),

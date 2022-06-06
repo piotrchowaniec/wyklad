@@ -4,12 +4,13 @@ import info.fingo.data.ActorRepository;
 import info.fingo.data.entity.Actor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
-@RequestMapping("actor")
+@RequestMapping("actors")
 public class ActorController {
 
     private final ActorRepository actorRepository;
@@ -37,6 +38,7 @@ public class ActorController {
     }
 
     @PostMapping("updateMultiple")
+    @Transactional
     public List<Actor> updateActors(@RequestParam Long id) {
         Actor update = actorRepository.findById(id)
                 .map(
