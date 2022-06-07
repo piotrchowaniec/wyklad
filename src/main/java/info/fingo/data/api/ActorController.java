@@ -2,6 +2,7 @@ package info.fingo.data.api;
 
 import info.fingo.data.ActorRepository;
 import info.fingo.data.entity.Actor;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -20,7 +21,7 @@ public class ActorController {
     }
 
     @GetMapping
-    public Iterable<Actor> getAll() {
+    public Iterable<Actor> getAll(OAuth2AuthenticationToken authentication) {
         return actorRepository.findAll();
     }
 
@@ -55,7 +56,6 @@ public class ActorController {
                 .map(
                         actor ->
                                 new Actor(actor.getActorId(), actor.getFirstName(), actor.getLastName(), LocalDateTime.now())
-
                 )
                 .orElseThrow(() -> new RuntimeException(String.format("Actor with id: %d not found", id)));
         actorRepository.save(update);

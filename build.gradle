@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 
     implementation 'org.flywaydb:flyway-core:8.5.11'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
