@@ -10,10 +10,7 @@ import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Repository
@@ -37,11 +34,11 @@ public class OrdersRepository {
         return order;
     }
 
-    public void delete(Long orderId) {
+    public void delete(UUID orderId) {
         orders.removeIf(it -> Objects.equals(it.getId(), orderId));
     }
 
-    public Optional<Order> findById(Long orderId) {
+    public Optional<Order> findById(UUID orderId) {
         return orders.stream().filter(it -> Objects.equals(it.getId(), orderId)).findFirst();
     }
 

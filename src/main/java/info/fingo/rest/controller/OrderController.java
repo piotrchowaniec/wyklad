@@ -2,8 +2,10 @@ package info.fingo.rest.controller;
 
 import info.fingo.rest.service.OrdersRepository;
 import info.fingo.rest.model.Order;
+import org.springframework.context.annotation.Role;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +23,7 @@ import java.util.UUID;
  */
 
 @RestController
-@RequestMapping("/api/v1/orders")
+@RequestMapping("/api/orders")
 public class OrderController {
 
     private final OrdersRepository ordersRepository;
@@ -41,18 +43,18 @@ public class OrderController {
     }
 
     @DeleteMapping("/{orderId}")
-    public void delete(@PathVariable Long orderId) {
+    public void delete(@PathVariable UUID orderId) {
         ordersRepository.delete(orderId);
     }
 
     @GetMapping("/{orderId}")
-    public Order getById(@PathVariable Long orderId) {
+    public Order getById(@PathVariable UUID orderId) {
         return ordersRepository.findById(orderId)
                 .orElseThrow(() -> new OrderNotFoundException(orderId));
     }
 
     @PutMapping("/{orderId}")
-    public Order updateOrder(@RequestBody Order newOrder, @PathVariable Long id) {
+    public Order updateOrder(@RequestBody Order newOrder, @PathVariable UUID id) {
         return ordersRepository.findById(id)
                 .map(order -> {
                     order.setOrderTime(newOrder.getOrderTime());
