@@ -1,4 +1,3 @@
-
 ## Co? Gdzie?
 1. [Opis zadania z wykładu 1](src/docs/asciidoc/zad1.adoc)
 2. Przykład rozwiązania zadania w pakiecie `info.fingo.zad1`
