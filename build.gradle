@@ -12,6 +12,8 @@ group 'info.fingo'
 version '1.0-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_17
 
+apply from: 'gradle/config/axion-release.gradle'
+
 repositories {
     mavenCentral()
 }

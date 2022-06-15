@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        maven { url 'https://nexus.fingo.info/repository/maven-public/' }
+    }
+    dependencies {
+        classpath group: 'pl.allegro.tech.build', name: 'axion-release-plugin', version: '1.13.5'
+    }
+}
+
+apply plugin: pl.allegro.tech.build.axion.release.ReleasePlugin
+
+scmVersion {
+    branchVersionIncrementer = [
+            // branches in form of v1.2.x are bugfix branches, so patch number should be incremented
+            'v[0-9]+\\.[0-9]+\\.x': 'incrementPrerelease',
+
+            // by default increment minor part of the number
+            '.*' : 'incrementMinor'
+    ]
+    hooks {
+        pre 'commit'
+    }
+    tag.prefix = "release-"
+}
+
+project.version = scmVersion.version
